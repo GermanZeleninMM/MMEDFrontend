@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <post-form @createpost = "createPost"/>
+        <post-form @createpost = "createPost" :tags="tags"/>
         <post-list v-bind:posts="posts" :tags="tags"/> 
     </div>
 </template>
