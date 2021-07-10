@@ -3,7 +3,7 @@
         <h3>Создание поста</h3>
         <input class="input_form" type="text" placeholder="Заголовок новости" v-bind:value="post.title" @input="post.title = $event.target.value"> <!-- v-bind это связывание значения в инпуте и дате -->
         <input class="input_form" type="text" placeholder="Описание" v-model="post.body_post"> <!-- Можно проще, v-model="post.title" - двустороннее связывание-->
-        <form-checkbox :tags="tags" @sendTags="input_tags"/>
+        <form-checkbox :tags="tags" @sendTags="input_tags" nameofformcheckbox="Категории"/>
         <button class="button_form" @click="createPost">Создать</button> <!--Слушатель нажатия @click -->
     </form>
 </template>
@@ -24,7 +24,7 @@ export default {
                 author: 'admin',
                 public_date: '08.07.2021',
                 tags: [],
-            }
+            },
         }
     },
 
