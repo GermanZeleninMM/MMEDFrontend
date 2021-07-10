@@ -30,6 +30,13 @@ export default {
 
     methods: {
         createPost () {
+            const monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+            const dateObj = new Date();
+            const month = monthNames[dateObj.getMonth()];
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const year = dateObj.getFullYear();
+            this.post.public_date = day + ' '+ month  + ' ' + year + ' года';
+
             this.post.id = Date.now();
             this.$emit('createpost', this.post);
             this.post = {
