@@ -4,15 +4,16 @@
         <input class="input_form" type="text" placeholder="Заголовок новости" v-bind:value="post.title" @input="post.title = $event.target.value"> <!-- v-bind это связывание значения в инпуте и дате -->
         <input class="input_form" type="text" placeholder="Описание" v-model="post.body_post"> <!-- Можно проще, v-model="post.title" - двустороннее связывание-->
         <form-checkbox :tags="tags" @sendTags="input_tags" nameofformcheckbox="Категории"/>
-        <button class="button_form" @click="createPost">Создать</button> <!--Слушатель нажатия @click -->
+        <my-button @click="createPost">Создать</my-button> <!--Слушатель нажатия @click -->
     </form>
 </template>
 
 <script>
 import FormCheckbox from './FormCheckbox.vue';
+import MyButton from './UI/MyButton.vue';
 export default {
     components: {
-        FormCheckbox
+        FormCheckbox, MyButton
     },
 
     data () {
@@ -66,15 +67,6 @@ export default {
 form {
     display: flex;
     flex-direction: column;
-}
-
-.button_form {
-    align-self: flex-end;
-    margin: 15px;
-    padding: 10px 15px;
-    background: none;
-    color: #002c85;
-    border: 2px solid #002c85;
 }
 
 .input_form {

@@ -1,20 +1,32 @@
 <template>
     <div class = "post">
-        <post-tags :tags="tags" :post_tags="post_tags"/>
-        <div><strong><h3>{{post_title}}</h3></strong></div>
-        <div class='post_body'><strong>Описание: </strong>{{post_body}}</div>
-        <div class="vault">
-            <h4>{{post_author}}</h4>
-            <h4>{{post_date}}</h4>
+        <div>
+            <div class="post_footer">
+                <div>
+                    <post-tags :tags="tags" :post_tags="post_tags"/>
+                    <div><strong><h3>{{post_title}}</h3></strong></div>
+                </div>
+                <div>
+                    <my-button style="margin-right: 0px">Удалить</my-button>
+                </div>
+            </div>
+            <div class='post_body'>
+                <strong>Описание: </strong>{{post_body}}
+            </div>
+            <div class="vault">
+                <h4>{{post_author}}</h4>
+                <h4>{{post_date}}</h4>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import PostTags from './PostTags.vue';
+import MyButton from './UI/MyButton.vue';
 export default {
     components: {
-        PostTags
+        PostTags, MyButton
     },
 
     props: {
@@ -63,5 +75,11 @@ export default {
 
 .post_body {
     margin-top: 10px;
+}
+
+.post_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>

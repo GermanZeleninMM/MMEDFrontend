@@ -38,12 +38,21 @@ export default {
 </script>
 
 <style>
-
-.formcheckbox {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, auto);
-    padding: 10px 15px;
+@media (min-width: 450px) {
+    .formcheckbox {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, auto);
+        padding: 10px 15px;
+    }
+}
+@media (min-width: 450px) {
+    .formcheckbox {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        padding: 10px 15px;
+    }
 }
 
 .input_checkbox {
