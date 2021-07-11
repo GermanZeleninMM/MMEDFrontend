@@ -3,11 +3,13 @@
     <post-item :post_title="post.title" :post_author="post.author" :post_date="post.public_date" :post_body="post.body_post" :tags="tags" v-for="post in posts" v-bind:key="post.id" :post_tags="post.tags"/>
 </template>
 
+
 <script>
 import PostItem from './PostItem.vue';
+import MyButton from './UI/MyButton.vue';
 
 export default {
-  components: { PostItem },
+  components: { PostItem, MyButton },
     component: {
         PostItem
     },
