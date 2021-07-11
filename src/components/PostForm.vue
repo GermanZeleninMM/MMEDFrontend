@@ -44,7 +44,7 @@ export default {
                 title: '',
                 body_post: '',
                 author: 'admin',
-                public_date: '08.07.2021',
+                public_date: '',
                 tags: []
             }
         },

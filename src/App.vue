@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <post-form @createpost = "createPost" :tags="tags"/>
-        <post-list v-bind:posts="posts" :tags="tags"/> 
+        <post-list v-bind:posts="posts" :tags="tags" @remove="removePost"/> 
     </div>
 </template>
 
@@ -92,6 +92,9 @@ import MyButton from './components/UI/MyButton.vue'
         methods: {
             createPost(post){
                 this.posts.push(post);
+            },
+            removePost(post) {
+                this.posts = this.posts.filter(p => p.id !== post.id);
             }
         }
     }

@@ -1,6 +1,11 @@
 <template>
-    <div><h3>Последние новости</h3></div>
-    <post-item :post_title="post.title" :post_author="post.author" :post_date="post.public_date" :post_body="post.body_post" :tags="tags" v-for="post in posts" v-bind:key="post.id" :post_tags="post.tags"/>
+    <div v-show="posts.length > 0">
+        <div><h3>Последние новости</h3></div>
+        <post-item :tags="tags" v-for="post in posts" v-bind:key="post.id" :post="post" @remove="$emit('remove', post)"/>
+    </div>
+    <div v-show="posts.length == 0">
+        <h1 style="color: red">Новостей пока нет. Станьте первым!</h1>
+    </div>
 </template>
 
 

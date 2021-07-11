@@ -3,19 +3,19 @@
         <div>
             <div class="post_footer">
                 <div>
-                    <post-tags :tags="tags" :post_tags="post_tags"/>
-                    <div><strong><h3>{{post_title}}</h3></strong></div>
+                    <post-tags :tags="tags" :post_tags="post.tags"/>
+                    <div><strong><h3>{{post.title}}</h3></strong></div>
                 </div>
                 <div>
-                    <my-button style="margin-right: 0px">Удалить</my-button>
+                    <my-button style="margin-right: 0px" @click="$emit('remove', post)">Удалить</my-button>
                 </div>
             </div>
             <div class='post_body'>
-                <strong>Описание: </strong>{{post_body}}
+                <strong>Описание: </strong>{{post.body_post}}
             </div>
             <div class="vault">
-                <h4>{{post_author}}</h4>
-                <h4>{{post_date}}</h4>
+                <h4>{{post.author}}</h4>
+                <h4>{{post.public_date}}</h4>
             </div>
         </div>
     </div>
@@ -30,28 +30,12 @@ export default {
     },
 
     props: {
-        post_title: {
-            type: String,
-            required: true, //Обязательность данного пропса
-        },
-        post_body: {
-            type: String,
-            required: true,
-        },
-        post_author: {
-            type: String,
-            required: true,
-        },
-        post_date: {
-            type: String,
-            required: true,
-        },
         tags: {
             type: Array,
             required: true,
         },
-        post_tags: {
-            type: Array,
+        post: {
+            type: Object,
             required: true,
         }
     }
